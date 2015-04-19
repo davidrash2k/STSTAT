@@ -13,10 +13,11 @@ package Model;
 public class Player {
     private String name;
     private Fleet fleet;
-    
+    private Board board;
     public Player(String name){
         this.name = name;
         fleet = new Fleet();
+        board = new Board();
     }
 
     /**
@@ -45,6 +46,20 @@ public class Player {
      */
     public void setFleet(Fleet fleet) {
         this.fleet = fleet;
+    }
+
+    /**
+     * @return the board
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
+     * @param board the board to set
+     */
+    public void setBoard(Board board) {
+        this.board = board;
     }
     
 }

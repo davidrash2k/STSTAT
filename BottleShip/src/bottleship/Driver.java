@@ -40,6 +40,7 @@ public class Driver {
           for(int ctr1 = 0; ctr1 < (p1Fleet.getShips()).size(); ctr1++){ //loop to access ship
               p1TempShip = p1Ships.get(ctr1);//get ship
               int shipSize = p1TempShip.getSize();
+              String direction ="";
               
               System.out.println("Ship: " + p1TempShip.getName() + " Position Coordinates");
               System.out.println("Ship size: " + p1TempShip.getSize());
@@ -51,20 +52,23 @@ public class Driver {
               startY = sc.nextInt();
               b = sc.nextLine();
               
-                System.out.println("End x:");
-              endX = sc.nextInt();
-              b = sc.nextLine();
+              System.out.println("[H]orizontal  / [V]ertical:");
+              direction = sc.nextLine();
+//              b = sc.nextLine();
               
-              System.out.println("End y:");
-              endY = sc.nextInt();
-              b = sc.nextLine();
               
               int x =  startX, y = startY;
-              for(int ctr2 = 0; ctr2 < shipSize; ctr2++){
-                  //put conditions here
+              for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
+                  if(direction.equals("H")){
+                      
+                  }else{
+                      
+                  }
+                  
+                  //init ship
               }
                            
-                      //init ship
+                      
                       
                             //set ship
           }
@@ -88,6 +92,44 @@ public class Driver {
         //player
         
         //bot
+        
+        // GAME
+        
+        //game init
+        String winner = "";
+        boolean p1Turn = true;
+        boolean c1Turn = false;
+        boolean p1Hit = false;
+        boolean c1Hit = false;
+       
+        while(winner.equals("")){ // game loop
+            
+            if(p1Turn){ //player 1
+                System.out.println("Player: " + p1.getName());
+                do{
+                    //hit code here
+                }while(p1Hit);
+                
+                p1Turn = false;
+                c1Turn = true;
+            }
+            
+             if(c1Turn){ //computer
+                 System.out.println("Player: " + c1.getName());
+                do{
+                    //hit code here
+                }while(p1Hit);
+                
+                c1Turn = false;
+                p1Turn = true;
+            }
+             
+             if(p1){
+                 
+             }
+            
+            
+        }
         
         
         
