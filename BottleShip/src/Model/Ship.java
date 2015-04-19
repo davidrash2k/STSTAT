@@ -59,7 +59,7 @@ public class Ship {
         this.size = size;
     }
     
-    public void hit(Coordinates hitCoord){
+    public boolean hit(Coordinates hitCoord){
           int ctr1;
        
           Coordinates tempCoord;
@@ -67,8 +67,11 @@ public class Ship {
               tempCoord = coordList.get(ctr1);
              if((tempCoord.getX() == hitCoord.getX()) && (tempCoord.getY() == hitCoord.getY()) ){
                  tempCoord.setIsHit(true);
+                 return true;
             }
+            
     }
+           return false;
     }
     
     /**
@@ -102,7 +105,8 @@ public class Ship {
         System.out.println("Ship:" + name);
         for(int ctr =0; ctr < size; ctr++){
             System.out.print("X: " + (coordList.get(ctr)).getX());
-            System.out.println(" Y: " + (coordList.get(ctr)).getY());
+            System.out.print(" Y: " + (coordList.get(ctr)).getY());
+            System.out.println(" Status: " + (coordList.get(ctr)).isIsHit());
         }
          System.out.println("END DISPLAY\n");
     }

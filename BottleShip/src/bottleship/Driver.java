@@ -26,7 +26,7 @@ public class Driver {
         
         
         Player p1 = new Player("Admiral 1");
-        Player c1 = new Player("Admiral Bot");
+        Computer c1 = new Computer("Admiral Bot");
         
         ArrayList<Ship> p1Ships; Ship p1TempShip;  
         ArrayList<Ship> c1Ships; Ship c1TempShip;
@@ -129,13 +129,34 @@ public class Driver {
         boolean c1Turn = false;
         boolean p1Hit = false;
         boolean c1Hit = false;
+        
+//        Fleet p1BattleFleet = new Fleet();
+//        ArrayList<Ship> p1BattleShips = new ArrayList<Ship>();
+//        
+//        Fleet c1BattleFleet = new Fleet();
+//        ArrayList<Ship> c1BattleShips = new ArrayList<Ship>();
+                
        
         while(winner.equals("")){ // game loop
             
             if(p1Turn){ //player 1
-                System.out.println("Player: " + p1.getName());
+                System.out.println("Player: " + p1.getName() + "'s turn");
                 do{
-                    //hit code here
+                    int x, y;
+                    System.out.println("Missile coord:");
+                     System.out.print("X: ");
+                      x = sc.nextInt();
+                      b = sc.nextLine();
+                      System.out.print("\nY:");
+                        y = sc.nextInt();
+                        b = sc.nextLine();
+                          System.out.println(" ");
+                    Coordinates tempCoord = new Coordinates();
+                    tempCoord.setX(x); tempCoord.setY(y);
+                     if(c1.checkHit(tempCoord))
+                       p1Hit = true;
+                   else
+                       p1Hit = false;
                 }while(p1Hit);
                 
                 p1Turn = false;
@@ -143,15 +164,18 @@ public class Driver {
             }
             
              if(c1Turn){ //computer
-                 System.out.println("Player: " + c1.getName());
+                 System.out.println("Player: " + c1.getName() + "'s turn");
                 do{
-                    //hit code here
-                }while(p1Hit);
+                   if(p1.checkHit(c1.generate()))
+                       c1Hit = true;
+                   else
+                       c1Hit = false;
+                }while(c1Hit);
                 
                 c1Turn = false;
                 p1Turn = true;
             }
-             
+            
              
              //check if there exists a winner
              

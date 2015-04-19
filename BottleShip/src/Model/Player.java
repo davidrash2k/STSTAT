@@ -65,6 +65,20 @@ public class Player {
     public void displayFleetCoordinates(){
         fleet.displayShipCoordinates();
     }
- 
+    
+    public void fleetOnBoard(){
+        board.placeFleet(fleet.getShips());
+    }
+    
+    
+    public boolean checkHit(Coordinates hitCoord){
+        boolean isHit = false;
+        fleet.checkHit(hitCoord);
+        
+        if(isHit)
+            fleetOnBoard(); //update board
+        
+        return isHit;
+    }
     
 }

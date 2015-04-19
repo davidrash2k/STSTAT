@@ -37,7 +37,7 @@ public class Computer extends Player {
      private int x;
      private int y;
     
-       public Computer( String name ){
+    public Computer( String name ){
       super( name );
       cList = new Arraylist<Coordinates>();
       x =0;

@@ -20,6 +20,9 @@ public class AircraftCarrier extends Ship{
         status = "ACTIVE";
     }
     
+    public void test(){
+        
+    }
     
     
 }

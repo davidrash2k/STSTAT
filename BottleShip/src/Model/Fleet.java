@@ -72,5 +72,24 @@ public class Fleet {
                 (ships.get(ctr)).displayCoordinates();
          }
     }
+     
+     public boolean checkHit(Coordinates missileCoord){
+         boolean isHit = false;
+         Ship tempShip = new Ship();
+         //if missileCoord matches with a ships coord
+                //hit
+         for(int ctr1 = 0; ctr1 < ships.size(); ctr1++){
+             tempShip = ships.get(ctr1);
+             
+            if(tempShip.hit(missileCoord)){
+                ships.set(ctr1, tempShip);
+                isHit = true;
+            }
+             
+         }
+         
+         
+         return isHit;
+     }
       
 }
