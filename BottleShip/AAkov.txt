@@ -1,0 +1,19 @@
+
+Logic for x and y fire coordinate for computer
+		maintain list of used x and y
+		
+		generate x;
+		generate y;
+		
+		check if x and y has not been used before
+			if not used{
+				
+				add x and y to list of used x and y
+				FIRE
+				
+				}
+			else
+				loop back to top to generate x and y
+		
+		
+		

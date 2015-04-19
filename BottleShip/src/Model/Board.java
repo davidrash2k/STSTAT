@@ -33,26 +33,44 @@ public class Board {
     
     public void placeFleet(ArrayList<Ship> ships){ //called only once
         Ship tempShip = new Ship();
+        ArrayList<Coordinates> tempShipCoord;
         BoardCoordinates tempCoord = new BoardCoordinates();
         int shipCtr = 1;
         int shipsIndex = 0;
-        int ctr1;
-        int coordLimit;
+        int ctr1, ctr2;
+        int coordLimit, coordCnt = 0;
         
         do{
             
             tempShip = ships.get(shipsIndex);
-            coordLimit = tempShip.size();
+            coordLimit = tempShip.getSize();
             
-            tempShip.getCoordList();
+            tempShipCoord = tempShip.getCoordList();
             
             
             for(ctr1 = 0; ctr1 < 100; ctr1++){ //row
-                tempCoord = boardGrid.get(ctr1);
+           
                 
+                
+                for(ctr2 = 0; ctr2 < tempShipCoord.size(); ctr2++){
+                  
+                    
+                    //set coord to not empty
+                    coordCnt++;
+                    
+                    if(coordCnt == coordLimit)
+                        break;
+                    
+                    
+                }
+                
+                if(coordCnt == coordLimit)
+                        break;
                 
                 
             }
+            
+            
             
             
             
