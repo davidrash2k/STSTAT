@@ -106,6 +106,66 @@ public class Driver {
         
        
  
+           //init
+        Fleet c1Fleet = c1.getFleet(); 
+        
+        
+        
+        c1.setFleet(c1Fleet);
+        
+        
+        
+        //set ship positions
+        
+        //player
+        
+        //bot
+        
+        // GAME
+        
+        //game init
+        String winner = "";
+        boolean p1Turn = true;
+        boolean c1Turn = false;
+        boolean p1Hit = false;
+        boolean c1Hit = false;
+       
+        while(winner.equals("")){ // game loop
+            
+            if(p1Turn){ //player 1
+                System.out.println("Player: " + p1.getName());
+                do{
+                    //hit code here
+                }while(p1Hit);
+                
+                p1Turn = false;
+                c1Turn = true;
+            }
+            
+             if(c1Turn){ //computer
+                 System.out.println("Player: " + c1.getName());
+                do{
+                    //hit code here
+                }while(p1Hit);
+                
+                c1Turn = false;
+                p1Turn = true;
+            }
+             
+             
+             //check if there exists a winner
+             
+             if(p1.getFleet().getStatus().equals("DESTROYED")){
+                winner = c1.getName();
+             }
+             
+              if(c1.getFleet().getStatus().equals("DESTROYED")){
+                winner = p1.getName();
+             }
+            
+            
+        }
+        
         
      
         
