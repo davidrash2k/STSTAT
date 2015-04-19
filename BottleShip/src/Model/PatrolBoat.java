@@ -15,7 +15,7 @@ public class PatrolBoat extends Ship {
     
       public PatrolBoat(){
          name = "Patrol Boat";
-        size = 3;
+        size = 2;
         coordList = new ArrayList<Coordinates>();
         status = "ACTIVE";
     }

@@ -100,10 +100,10 @@ public class Ship {
     
     public void displayCoordinates(){
         System.out.println("Ship:" + name);
-        for(Coordinates coord: coordList){
-            System.out.println("X: " + coord.getX());
-            System.out.println("Y: " + coord.getY());
+        for(int ctr =0; ctr < size; ctr++){
+            System.out.print("X: " + (coordList.get(ctr)).getX());
+            System.out.println(" Y: " + (coordList.get(ctr)).getY());
         }
-         System.out.println("\n");
+         System.out.println("END DISPLAY\n");
     }
 }

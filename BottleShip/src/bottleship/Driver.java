@@ -31,16 +31,18 @@ public class Driver {
         ArrayList<Ship> p1Ships; Ship p1TempShip;  
         ArrayList<Ship> c1Ships; Ship c1TempShip;
         
-        ArrayList<Coordinates> p1ShipCoords; Coordinates p1TempCoord;
+        ArrayList<Coordinates> p1ShipCoords = new ArrayList<Coordinates>(); 
+        Coordinates p1TempCoord = new Coordinates();
         
         //init
         Fleet p1Fleet = p1.getFleet();
         p1Ships = p1Fleet.getShips();
-        
+//        (p1Fleet.getShips()).size()
           for(int ctr1 = 0; ctr1 < (p1Fleet.getShips()).size(); ctr1++){ //loop to access ship
               p1TempShip = p1Ships.get(ctr1);//get ship
               int shipSize = p1TempShip.getSize();
               String direction ="";
+               p1TempCoord = new Coordinates();
               
               System.out.println("Ship: " + p1TempShip.getName() + " Position Coordinates");
               System.out.println("Ship size: " + p1TempShip.getSize());
@@ -54,84 +56,58 @@ public class Driver {
               
               System.out.println("[H]orizontal  / [V]ertical:");
               direction = sc.nextLine();
+              direction = direction.toUpperCase();
 //              b = sc.nextLine();
               
               
-              int x =  startX, y = startY;
-              for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
-                  if(direction.equals("H")){
-                      
+              int x = startX, y = startY;
+                p1TempCoord.setX(x); p1TempCoord.setY(y);
+                p1ShipCoords.add(p1TempCoord);
+              
+             
+                
+                  if(direction.equals("V")){
+                       for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
+                       y++;
+                       p1TempCoord = new Coordinates();
+                       p1TempCoord.setX(x); p1TempCoord.setY(y);
+                       p1ShipCoords.add(p1TempCoord);
+                       }
                   }else{
+                        for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
+                        x++;
+                         p1TempCoord = new Coordinates();
+                       p1TempCoord.setX(x); p1TempCoord.setY(y);
+                       p1ShipCoords.add(p1TempCoord); //problem
+                        }
                       
                   }
                   
-                  //init ship
-              }
+                  //init  ship coords
+              
+              
+              p1TempShip.setCoordList(p1ShipCoords);
+              p1Ships.set(ctr1, p1TempShip);
                            
+              
                       
                       
                             //set ship
           }
+          
+          p1Fleet.setShips(p1Ships);
                
         
         
-        p1.setFleet(p1Fleet);
+        p1.setFleet(p1Fleet); // fleet initialized with coordinates
         
         
-        //init
-        Fleet c1Fleet = c1.getFleet(); 
+        p1.getFleet().displayShipCoordinates();
         
-        
-        
-        c1.setFleet(c1Fleet);
-        
-        
-        
-        //set ship positions
-        
-        //player
-        
-        //bot
-        
-        // GAME
-        
-        //game init
-        String winner = "";
-        boolean p1Turn = true;
-        boolean c1Turn = false;
-        boolean p1Hit = false;
-        boolean c1Hit = false;
        
-        while(winner.equals("")){ // game loop
-            
-            if(p1Turn){ //player 1
-                System.out.println("Player: " + p1.getName());
-                do{
-                    //hit code here
-                }while(p1Hit);
-                
-                p1Turn = false;
-                c1Turn = true;
-            }
-            
-             if(c1Turn){ //computer
-                 System.out.println("Player: " + c1.getName());
-                do{
-                    //hit code here
-                }while(p1Hit);
-                
-                c1Turn = false;
-                p1Turn = true;
-            }
-             
-             if(p1){
-                 
-             }
-            
-            
-        }
+ 
         
-        
+     
         
         
         

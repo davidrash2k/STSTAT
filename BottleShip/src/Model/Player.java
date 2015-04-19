@@ -62,4 +62,8 @@ public class Player {
         this.board = board;
     }
     
+    public void displayFleetCoordinates(){
+        fleet.displayShipCoordinates();
+    }
+    
 }

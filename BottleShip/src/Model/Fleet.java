@@ -68,8 +68,8 @@ public class Fleet {
     
      public void displayShipCoordinates(){
          System.out.println("FLEET");
-         for(Ship ship: ships){
-                ship.displayCoordinates();
+         for(int ctr = 0; ctr < ships.size(); ctr++){
+                (ships.get(ctr)).displayCoordinates();
          }
     }
       
