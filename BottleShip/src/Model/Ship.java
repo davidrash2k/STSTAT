@@ -97,4 +97,13 @@ public class Ship {
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    public void displayCoordinates(){
+        System.out.println("Ship:" + name);
+        for(Coordinates coord: coordList){
+            System.out.println("X: " + coord.getX());
+            System.out.println("Y: " + coord.getY());
+        }
+         System.out.println("\n");
+    }
 }

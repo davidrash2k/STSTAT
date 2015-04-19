@@ -34,7 +34,8 @@ public class Board {
     public void placeFleet(ArrayList<Ship> ships){ //called only once
         Ship tempShip = new Ship();
         ArrayList<Coordinates> tempShipCoord;
-        BoardCoordinates tempCoord = new BoardCoordinates();
+        Coordinates tempCoord;
+        BoardCoordinates tempBoardCoord = new BoardCoordinates();
         int shipCtr = 1;
         int shipsIndex = 0;
         int ctr1, ctr2;
@@ -54,8 +55,17 @@ public class Board {
                 
                 for(ctr2 = 0; ctr2 < tempShipCoord.size(); ctr2++){
                   
+                    tempCoord = tempShipCoord.get(ctr2); // coordinate list of ship
+                    tempBoardCoord = boardGrid.get(ctr1); // coordinate of board
                     
+                    //check find matching coordinate of ship and board. set board coordinate to not empty.
+                    if((tempCoord.getX() == tempBoardCoord.getX()) && (tempCoord.getY() == tempBoardCoord.getY()) ){
+                           tempBoardCoord.setIsEmpty(false);
+                           boardGrid.add(ctr1, tempBoardCoord);
+                           coordCnt++;
+                    }
                     //set coord to not empty
+                    
                     coordCnt++;
                     
                     if(coordCnt == coordLimit)

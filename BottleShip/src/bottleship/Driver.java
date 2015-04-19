@@ -5,6 +5,8 @@
  */
 package bottleship;
 import Model.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -16,11 +18,70 @@ public class Driver {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // 
+        //
+       
+        Scanner sc = new Scanner(System.in);
+        int startX, startY, endX, endY;
+        String b;
+        
         
         Player p1 = new Player("Admiral 1");
         Player c1 = new Player("Admiral Bot");
-        Fleet p1Fleet; Fleet c1Fleet;
+        
+        ArrayList<Ship> p1Ships; Ship p1TempShip;  
+        ArrayList<Ship> c1Ships; Ship c1TempShip;
+        
+        ArrayList<Coordinates> p1ShipCoords; Coordinates p1TempCoord;
+        
+        //init
+        Fleet p1Fleet = p1.getFleet();
+        p1Ships = p1Fleet.getShips();
+        
+          for(int ctr1 = 0; ctr1 < (p1Fleet.getShips()).size(); ctr1++){ //loop to access ship
+              p1TempShip = p1Ships.get(ctr1);//get ship
+              int shipSize = p1TempShip.getSize();
+              
+              System.out.println("Ship: " + p1TempShip.getName() + " Position Coordinates");
+              System.out.println("Ship size: " + p1TempShip.getSize());
+              System.out.println("Start x:");
+              startX = sc.nextInt();
+              b = sc.nextLine();
+              
+              System.out.println("Start y:");
+              startY = sc.nextInt();
+              b = sc.nextLine();
+              
+                System.out.println("End x:");
+              endX = sc.nextInt();
+              b = sc.nextLine();
+              
+              System.out.println("End y:");
+              endY = sc.nextInt();
+              b = sc.nextLine();
+              
+              int x =  startX, y = startY;
+              for(int ctr2 = 0; ctr2 < shipSize; ctr2++){
+                  //put conditions here
+              }
+                           
+                      //init ship
+                      
+                            //set ship
+          }
+               
+        
+        
+        p1.setFleet(p1Fleet);
+        
+        
+        //init
+        Fleet c1Fleet = c1.getFleet(); 
+        
+        
+        
+        c1.setFleet(c1Fleet);
+        
+        
         
         //set ship positions
         

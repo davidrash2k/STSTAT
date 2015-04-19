@@ -64,5 +64,13 @@ public class Fleet {
     public void setShips(ArrayList<Ship> ships) {
         this.ships = ships;
     }
+    
+    
+     public void displayShipCoordinates(){
+         System.out.println("FLEET");
+         for(Ship ship: ships){
+                ship.displayCoordinates();
+         }
+    }
       
 }
