@@ -20,8 +20,9 @@ public class Coordinates {
         isHit = false;
     }
 
-    Coordinates(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     
     public void setCoordinates(int x, int y){

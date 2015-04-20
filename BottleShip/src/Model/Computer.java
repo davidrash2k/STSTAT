@@ -1,26 +1,3 @@
-/*
-
-
-Logic for x and y fire coordinate for computer
-      maintain list of used x and y
-      
-      generate x;
-      generate y;
-      
-      check if x and y has not been used before
-         if not used{
-            
-            add x and y to list of used x and y
-            FIRE
-            
-            }
-         else
-            loop back to top to generate x and y
-
-
-*/
-
-
 package Model;
 
 /**
@@ -28,18 +5,19 @@ package Model;
  * @author aakov-dy
  */
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Computer extends Player {
     
     
     
-     private Arraylist<Coordinates> cList;
+     private ArrayList<Coordinates> cList;
      private int x;
      private int y;
     
     public Computer( String name ){
       super( name );
-      cList = new Arraylist<Coordinates>();
+      cList = new ArrayList<Coordinates>();
       x =0;
       y =0;
    }
@@ -54,12 +32,16 @@ public class Computer extends Player {
          cList.add( coord );
          return coord;
       }else{
+          if(cList.size() != 100){
         do{
              x = generateX(); y = generateY();
          }while ( check(x,y) );
             coord = new Coordinates ( x , y );
          cList.add( new Coordinates ( x , y ) );
-          return coord;
+         
+          }
+          
+           return coord;
       }
    }
 

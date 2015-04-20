@@ -83,11 +83,15 @@ public class Ship {
          for(ctr1 = 0; ctr1 < coordList.size(); ctr1++){
               if((coordList.get(ctr1).isIsHit())){ 
                     hits++;
+                    System.out.println("Hits: " + hits + " " + coordList.get(ctr1).isIsHit());
+                     System.out.println("Cood List size :  " + coordList.size());
               }
           }
          
          if(hits == size){
+             System.out.println("------------------------------------------");
              return "SUNK";
+            
          }
          
          return "ACTIVE";

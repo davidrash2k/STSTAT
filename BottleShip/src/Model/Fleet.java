@@ -26,12 +26,14 @@ public class Fleet {
     }
     
     public String getStatus(){
+        System.out.println("FLEET STATUS: ");
          int destroyedShips = 0;
         Ship tempShip = new Ship();
         int ctr1 = 0, ctr2 = 0;
         for(ctr1 = 0; ctr1 < getShips().size(); ctr1++){
                tempShip = getShips().get(ctr1);
                
+                
                if((tempShip.getStatus()).equals("SUNK"))
                            destroyedShips++;
             
@@ -39,7 +41,10 @@ public class Fleet {
         
         if(destroyedShips == 5){
             status = "DESTROYED";
+           
         }
+        
+        System.out.println(status);
         
         return status;
     }

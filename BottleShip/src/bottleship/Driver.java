@@ -39,6 +39,7 @@ public class Driver {
         p1Ships = p1Fleet.getShips();
 //        (p1Fleet.getShips()).size()
           for(int ctr1 = 0; ctr1 < (p1Fleet.getShips()).size(); ctr1++){ //loop to access ship
+              p1ShipCoords = new ArrayList<Coordinates>(); 
               p1TempShip = p1Ships.get(ctr1);//get ship
               int shipSize = p1TempShip.getSize();
               String direction ="";
@@ -136,35 +137,49 @@ public class Driver {
 //        Fleet c1BattleFleet = new Fleet();
 //        ArrayList<Ship> c1BattleShips = new ArrayList<Ship>();
                 
-       
-        while(winner.equals("")){ // game loop
+       winner = "none";
+        while(winner.equals("none")){ // game loop
             
             if(p1Turn){ //player 1
                 System.out.println("Player: " + p1.getName() + "'s turn");
-                do{
-                    int x, y;
-                    System.out.println("Missile coord:");
-                     System.out.print("X: ");
-                      x = sc.nextInt();
-                      b = sc.nextLine();
-                      System.out.print("\nY:");
-                        y = sc.nextInt();
-                        b = sc.nextLine();
-                          System.out.println(" ");
-                    Coordinates tempCoord = new Coordinates();
-                    tempCoord.setX(x); tempCoord.setY(y);
-                     if(c1.checkHit(tempCoord))
-                       p1Hit = true;
-                   else
-                       p1Hit = false;
-                }while(p1Hit);
+                  p1.getFleet().displayShipCoordinates();
+                  System.out.println("-----------------------------------------------------");
+                  
+ 
+                  
+//                do{
+//                    int x, y;
+//                    System.out.println("Missile coord:");
+//                     System.out.print("X: ");
+//                      x = sc.nextInt();
+//                      b = sc.nextLine();
+//                      System.out.print("\nY:");
+//                        y = sc.nextInt();
+//                        b = sc.nextLine();
+//                          System.out.println(" ");
+//                    Coordinates tempCoord = new Coordinates();
+//                    tempCoord.setX(x); tempCoord.setY(y);
+//                     if(c1.checkHit(tempCoord))
+//                       p1Hit = true;
+//                   else
+//                       p1Hit = false;
+//                }while(p1Hit);
                 
                 p1Turn = false;
                 c1Turn = true;
+                
+                
+                   if((p1.getFleet().getStatus()).equals("DESTROYED") || (c1.getFleet().getStatus()).equals("DESTROYED") ){
+                 c1Turn = false;
+                 p1Turn = false;
+             }
+                
+                
             }
             
              if(c1Turn){ //computer
                  System.out.println("Player: " + c1.getName() + "'s turn");
+                    System.out.println("NO FLEET \n\n\n\n\n");
                 do{
                    if(p1.checkHit(c1.generate()))
                        c1Hit = true;
@@ -174,16 +189,22 @@ public class Driver {
                 
                 c1Turn = false;
                 p1Turn = true;
+                
+                if((p1.getFleet().getStatus()).equals("DESTROYED") || (c1.getFleet().getStatus()).equals("DESTROYED") ){
+                 c1Turn = false;
+                 p1Turn = false;
+             }
+                
             }
             
              
              //check if there exists a winner
              
-             if(p1.getFleet().getStatus().equals("DESTROYED")){
+             if((p1.getFleet().getStatus()).equals("DESTROYED")){
                 winner = c1.getName();
              }
              
-              if(c1.getFleet().getStatus().equals("DESTROYED")){
+              if((c1.getFleet().getStatus()).equals("DESTROYED")){
                 winner = p1.getName();
              }
             
