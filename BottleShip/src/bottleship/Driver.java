@@ -130,6 +130,7 @@ public class Driver {
         boolean c1Turn = false;
         boolean p1Hit = false;
         boolean c1Hit = false;
+        boolean gameFlag = true;
         
 //        Fleet p1BattleFleet = new Fleet();
 //        ArrayList<Ship> p1BattleShips = new ArrayList<Ship>();
@@ -138,10 +139,10 @@ public class Driver {
 //        ArrayList<Ship> c1BattleShips = new ArrayList<Ship>();
                 
        winner = "none";
-        while(winner.equals("none")){ // game loop
+        while(gameFlag){ // game loop
             
             if(p1Turn){ //player 1
-                System.out.println("Player: " + p1.getName() + "'s turn");
+                System.out.println("Player: " + p1.getName() + "'s turn  P1 TURN");
                   p1.getFleet().displayShipCoordinates();
                   System.out.println("-----------------------------------------------------");
                   
@@ -178,7 +179,7 @@ public class Driver {
             }
             
              if(c1Turn){ //computer
-                 System.out.println("Player: " + c1.getName() + "'s turn");
+                 System.out.println("Player: " + c1.getName() + "'s turn C1 TURN");
                     System.out.println("NO FLEET \n\n\n\n\n");
                 do{
                    if(p1.checkHit(c1.generate()))
@@ -201,15 +202,21 @@ public class Driver {
              //check if there exists a winner
              
              if((p1.getFleet().getStatus()).equals("DESTROYED")){
+                 System.out.println("WINNER p1");
                 winner = c1.getName();
+                gameFlag = false;
              }
              
               if((c1.getFleet().getStatus()).equals("DESTROYED")){
+                    System.out.println("WINNER c1");
                 winner = p1.getName();
+                 gameFlag = false;
              }
             
             
         }
+        
+        System.out.println("GAME ENDED! Winner is: " + winner);
         
         
      
