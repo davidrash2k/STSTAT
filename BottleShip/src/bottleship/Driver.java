@@ -68,18 +68,18 @@ public class Driver {
              
                 
                   if(direction.equals("V")){
-                       for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
-                       y++;
-                       p1TempCoord = new Coordinates();
-                       p1TempCoord.setX(x); p1TempCoord.setY(y);
-                       p1ShipCoords.add(p1TempCoord);
-                       }
+                        for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
+                            y++;
+                            p1TempCoord = new Coordinates();
+                            p1TempCoord.setX(x); p1TempCoord.setY(y);
+                            p1ShipCoords.add(p1TempCoord);
+                        }
                   }else{
                         for(int ctr2 = 1; ctr2 < shipSize; ctr2++){
-                        x++;
-                         p1TempCoord = new Coordinates();
-                       p1TempCoord.setX(x); p1TempCoord.setY(y);
-                       p1ShipCoords.add(p1TempCoord); //problem
+                            x++;
+                            p1TempCoord = new Coordinates();
+                            p1TempCoord.setX(x); p1TempCoord.setY(y);
+                            p1ShipCoords.add(p1TempCoord); //problem
                         }
                       
                   }
